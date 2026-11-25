@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arcade Cloud - Juega sin descargar</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Librería oficial de Supabase -->
+  <script src="https://jsdelivr.net"></script>
+</head>
+<body>
+
+  <!-- Barra Superior -->
+  <header>
+    <h1>🎮 Arcade Cloud</h1>
+    <div id="user-info" class="hidden">
+      <span id="user-email"></span>
+      <button id="btn-logout">Cerrar Sesión</button>
+    </div>
+  </header>
+
+  <!-- Pantalla de Inicio de Sesión / Registro -->
+  <section id="auth-section" class="container">
+    <div class="auth-box">
+      <h2>Inicia sesión para jugar</h2>
+      <input type="email" id="email" placeholder="Tu correo electrónico" required>
+      <input type="password" id="password" placeholder="Tu contraseña (mín. 6 caracteres)" required>
+      <div class="auth-buttons">
+        <button id="btn-login">Entrar</button>
+        <button id="btn-signup" class="secondary">Registrarse</button>
+      </div>
+      <p id="auth-message"></p>
+    </div>
+  </section>
+
+  <!-- Panel Exclusivo para Administradores -->
+  <section id="admin-section" class="container hidden">
+    <div class="admin-box">
+      <h3>🛠️ Panel de Administrador: Añadir Juego</h3>
+      <form id="add-game-form">
+        <input type="text" id="game-title" placeholder="Nombre del juego" required>
+        <input type="url" id="game-image" placeholder="URL de la imagen de portada (https://...)" required>
+        <input type="url" id="game-url" placeholder="URL del juego HTML5 / Web (https://...)" required>
+        <button type="submit">Publicar Juego</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Catálogo de Juegos -->
+  <main id="games-section" class="container hidden">
+    <h2>Selecciona un juego</h2>
+    <div id="games-grid" class="grid">
+      <!-- Los juegos se cargarán aquí dinámicamente -->
+    </div>
+  </main>
+
+  <!-- Reproductor del Juego (Modal a pantalla completa) -->
+  <div id="player-modal" class="modal hidden">
+    <div class="modal-header">
+      <h3 id="playing-title">Jugando...</h3>
+      <button id="btn-close-game">✖ Salir del juego</button>
+    </div>
+    <iframe id="game-frame" src="" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
